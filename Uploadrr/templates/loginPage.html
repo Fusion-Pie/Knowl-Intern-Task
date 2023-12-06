@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+    <form action="/" method="post">
+
+        {% csrf_token %}
+
+        {% if messages %}
+
+            {% for message in messages %}
+
+                {{ message.tags }} {{ message }}
+
+            {% endfor %}
+        
+        {% endif %}
+
+        <label for="uname">Username</label>
+        <input type="text" name="uname" required>
+
+         <label for="pass">Password</label>
+        <input type="password" name="pass" required>
+
+        <input type="submit" name="btn_name" value="Login">
+
+    </form>
+
+    <a href="/register/">New User </a>
+    
+</body>
+</html>
