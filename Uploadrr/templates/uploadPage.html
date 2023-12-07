@@ -1,0 +1,35 @@
+{% extends "basePage.html" %}
+
+{% block content %}
+
+    <div class="flex flex-col w-full p-10 space-y-10 font-serif">
+
+        <div class="flex justify-center text-xl font-extrabold bg-black text-[#ffffff] py-5 rounded-lg">
+            <h1>Upload Files</h1>
+        </div>
+
+        <div class="flex flex-col bg-gray-200 p-10 rounded-lg space-y-10">
+
+            <form action="/uploadFile/" method="post" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div class="flex flex-row space-x-5 justify-center">
+
+                    <label class="flex text-lg font-bold px-3 py-2">Upload Files Here: </label>
+    
+                    <input class="flex px-3 py-2" type="file" name="files" multiple>
+        
+                    <input class="flex bg-blue-400 px-3 py-2 rounded-lg" type="submit" name="btn_name" value="Upload">
+
+                </div>
+    
+            </form>
+            
+        </div>
+
+        <label class="flex font-bold text-md text-red-600 px-3 justify-end">Note: You can upload mulitple files at once</label>
+
+    </div>
+
+{% endblock content %}

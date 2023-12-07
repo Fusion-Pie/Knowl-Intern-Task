@@ -1,0 +1,32 @@
+{% extends "basePage.html" %}
+
+{% block content %}
+
+    <div class="flex flex-col w-full p-10">
+
+        <div class="flex justify-center text-xl font-serif font-extrabold bg-black text-[#ffffff] py-5 rounded-lg">
+            <h1>User Basic Information</h1>
+        </div>
+
+        <div class="flex flex-col p-10 space-y-10 font-serif font-semibold text-xl">
+
+            <div class="flex flex-row">
+                <label class="flex basis-2/4 justify-center">Username</label>
+                <label class="flex basis-2/4 justify-center">{{ request.user }}</label>
+            </div>
+    
+            <div class="flex flex-row">
+                <label class="flex basis-2/4 justify-center">First Name</label>
+                <label class="flex basis-2/4 justify-center">{{ request.user.first_name }}</label>
+            </div>
+    
+            <div class="flex flex-row">
+                <label class="flex basis-2/4 justify-center">Last Name</label>
+                <label class="flex basis-2/4 justify-center">{{ request.user.last_name }}</label>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock content %}

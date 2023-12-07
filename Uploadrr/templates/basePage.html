@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base Page</title>
+    <title>HomePage | Uploadrr</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="flex flex-col">
 
-    WElcome {{ request.user }}!!
+    <div class="flex justify-center w-full bg-red-500 p-5">
+        <h1 class="flex font-serif text-3xl font-extrabold">Uploadrr</h1>
+    </div>
 
-    {{ request.user.first_name }}
+    <div class="flex flex-row h-screen w-full bg-red-100">
 
+        <div id="left_div" class="flex flex-col basis-1/5 border-r-2 border-black font-serif text-md">
 
-    <form action="/home/" method="post">
-        {% csrf_token %}
+            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/profile/'>Profile</a>
+            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/uploadFile/'>Upload Files</a>
+            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/viewUploadedFile/'>View Uploaded Files</a>
+            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/sharedFile/'>Shared Files</a>
+            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/searchUser/'>Search User</a>
+            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/logout/'>Logout</a>
 
-        <input type="submit" value="Logout" name="btn_name">
-        
-    </form>
+        </div>
 
+        <div id="right-div" class="flex basis-4/5 w-full">
+
+            {% block content %}
+            
+            {% endblock content %}
+
+        </div>
+
+    </div>
+    
 </body>
 </html>

@@ -3,43 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Register </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Register</title>
 </head>
-<body>
+<body class="flex justify-center items-center">
 
-    <div>
+    <form action="/register/" method="post">
+        
+        {% csrf_token %}
+    
+        <div class="flex flex-col bg-[#fefae0] justify-center space-y-5 mt-56 p-10 rounded-lg drop-shadow-xl">
 
-        <form action="/register/" method="post">
+            <div class="flex flex-row font-serif font-semibold text-xl space-x-10">
+                <label class="flex basis-1/3" for="uname">Username</label>
+                <input class="flex basis-2/3 rounded-sm pl-1" type="text" name="uname">
+            </div>
 
-            {% csrf_token %}
-
-            {% if messages %}
-
-                {% for message in messages %}
-
-                    {{ message.tags }} {{ message }}
-
-                {% endfor %}
+            <!-- <div class="flex justify-end w-full space-x-10">
+                <span class="flex basis-1/3"></span>
+                <input class="flex text-red-700 text-xs font-serif basis-2/3 -mt-3" type="text" id="error_uname" value="Please change your username" disabled>
+            </div>    -->
             
-            {% endif %}
+            <div class="flex flex-row font-serif font-semibold text-xl space-x-10">
+                <label class="flex basis-1/3" for="fname">First Name</label>
+                <input class="flex basis-2/3 rounded-sm pl-1" type="text" name="fname">
+            </div>
 
-            <label for="uname">Username</label>
-            <input type="text" name="uname" required>
+            <div class="flex flex-row font-serif font-semibold text-xl space-x-10">
+                <label class="flex basis-1/3" for="lname">Last Name</label>
+                <input class="flex basis-2/3 rounded-sm pl-1" type="text" name="lname">
+            </div>
 
-            <label for="fname">First Name</label>
-            <input type="text" name="fname" required>
-    
-            <label for="lname">Last Name</label>
-            <input type="text" name="lname" required>
-    
-            <label for="pass">Password</label>
-            <input type="password" name="pass" required>
+            <div class="flex flex-row font-serif font-semibold text-xl space-x-10">
+                <label class="flex basis-1/3" for="pass">Password</label>
+                <input class="flex basis-2/3 rounded-sm pl-1" type="password" name="pass">
+            </div>
 
-            <input type="submit" name="btn_name" value="Register">
+            <div class="flex justify-center">
+                <input class="flex font-serif font-semibold text-xl px-5 py-2 rounded-lg bg-[#d4a373] drop-shadow-xl mt-2" name="btn_name" type="submit" value="Register">
+            </div>
 
-        </form>
+        </div>
 
-    </div>
+    </form>
     
 </body>
 </html>
