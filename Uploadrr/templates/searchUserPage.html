@@ -1,0 +1,48 @@
+{% extends "basePage.html" %}
+
+{% block content %}
+
+    <div class="flex flex-col w-full p-10 space-y-10 font-serif">
+
+        <div class="flex justify-center text-xl font-extrabold bg-black text-[#ffffff] py-5 rounded-lg">
+            <h1>Search User</h1>
+        </div>
+
+        <form action="/searchUser/" method="post">
+            <div class="flex flex-row space-x-10 text-lg">
+                {% csrf_token %}
+                <input class="flex px-2 py-1 rounded-lg basis-4/5" type="text" name="uname" placeholder="Enter User's Username">
+                <input class="flex px-3 py-1 bg-blue-300 rounded-lg basis-1/5 justify-center hover:cursor-pointer" type="submit" name="btn_name" value="Find">
+            </div>
+        </form>
+
+        {% for user in userInfo %}
+
+            <div class="flex justify-center text-xl font-extrabold bg-black text-[#ffffff] py-5 rounded-lg">
+                <h1>Searched User Information</h1>
+            </div>
+
+            <div class="flex flex-col p-10 space-y-10 font-serif font-semibold text-xl">
+
+                <div class="flex flex-row">
+                    <label class="flex basis-2/4 justify-center">Username</label>
+                    <label class="flex basis-2/4 justify-center">{{ user }}</label>
+                </div>
+        
+                <div class="flex flex-row">
+                    <label class="flex basis-2/4 justify-center">First Name</label>
+                    <label class="flex basis-2/4 justify-center">{{ user.first_name }}</label>
+                </div>
+        
+                <div class="flex flex-row">
+                    <label class="flex basis-2/4 justify-center">Last Name</label>
+                    <label class="flex basis-2/4 justify-center">{{ user.last_name }}</label>
+                </div>
+
+            </div>
+        
+        {% endfor %}
+
+    </div>
+
+{% endblock content %}

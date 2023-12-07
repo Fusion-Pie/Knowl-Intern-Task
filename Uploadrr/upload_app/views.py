@@ -131,6 +131,22 @@ def viewUploadedFiles(request):
 
     return render(request, 'uploadedFiles.html', context = {'files': files})
 
+
+@login_required(login_url = '/')
+def searchUser(request):
+    context = {}
+ 
+    if request.method =='POST':
+        if request.POST['btn_name'] == 'Find':
+            try:
+                user = User.objects.filter(username = request.POST['uname'])
+                context['userInfo'] = user 
+                print(user)
+            except:
+                pass
+
+    return render(request, 'searchUserPage.html', context = context)
+
 def logoutUser(request):
     logout(request)
     return redirect('/')
