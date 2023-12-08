@@ -3,7 +3,7 @@
 <head>
     <title>HomePage | Uploadrr</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    {% block extraScripts %}{% endblock extraScripts %}
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 <body class="flex flex-col">
 
@@ -15,12 +15,35 @@
 
         <div id="left_div" class="flex flex-col basis-1/5 border-r-2 border-black font-serif text-md">
 
-            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/profile/'>Profile</a>
-            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/uploadFile/'>Upload Files</a>
-            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/viewUploadedFile/'>View Uploaded Files</a>
-            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/sharedFile/'>Shared Files</a>
-            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/searchUser/'>Search User</a>
-            <a class="flex bg-slate-400 justify-center p-3 border-b-2 border-black hover:cursor-pointer" href='/logout/'>Logout</a>
+            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/profile/'>
+                <box-icon class="flex" name='log-out'></box-icon> 
+                <span class="flex">Profile</span>
+            </a>
+
+            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/uploadFile/'>
+                <box-icon class="flex" name='cloud-upload'></box-icon>
+                <span class="flex">Upload Files</span>
+            </a>
+
+            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/viewUploadedFile/'>
+                <box-icon name='upload' ></box-icon>
+                <span>View Uploaded Files</span>
+            </a>
+
+            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/sharedFile/'>
+                <box-icon name='share' ></box-icon>
+                <span>Shared Files</span>
+            </a>
+
+            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/searchUser/'>
+                <box-icon name='search-alt-2' ></box-icon>
+                <span>Search User</span>
+            </a>
+
+            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/logout/'>
+                <box-icon name='log-out' ></box-icon>
+                <span>Logout</span>
+            </a>
 
         </div>
 

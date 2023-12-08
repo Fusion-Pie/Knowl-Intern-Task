@@ -66,40 +66,6 @@ def registerUser(request):
 
 @login_required(login_url = '/')
 def base(request):
-    if request.method == 'POST':
-        if request.POST['btn_name'] == 'Logout':
-            logout(request)
-            messages.success(request, 'Logged Out Successfully!!')
-        
-            return redirect('/')
-    
-
-        # Save the uploaded files in the db
-        if request.POST['btn_name'] == 'Upload':
-            print(request.FILES.getlist('files'))
-            
-            for file in request.FILES.getlist('files'):
-                new_file = Files.objects.create(file_name = file.name, 
-                                                file = file,
-                                                uploadedBy = request.user)
-                
-                user = User.objects.get(username = 'll')
-
-                print(user)
-
-                new_file.shared_with.add(user)
-
-                new_file.save()
-
-                print(user.shared_with.all())
-
-            for file in  Files.objects.all():
-                print(file.file_name, file.shared_with)
-
-            messages.success(request, 'Files uploaded successfully')
-
-            return HttpResponse("T")
-
     return render(request, 'basePage.html')
 
 
@@ -126,8 +92,18 @@ def uploadFile(request):
 
 @login_required(login_url = '/')
 def viewUploadedFiles(request):
-
     files = list(Files.objects.filter(uploadedBy = request.user).values())
+
+    if request.method == 'POST':
+        if request.POST['btn_name'] == 'Share':
+            try:
+                file = Files.objects.get(id = request.POST['fid'])
+                user = User.objects.get(username = request.POST['uname'])
+
+                file.shared_with.add(user)
+                file.save()
+            except:
+                pass
 
     return render(request, 'uploadedFiles.html', context = {'files': files})
 
@@ -147,10 +123,15 @@ def searchUser(request):
 
     return render(request, 'searchUserPage.html', context = context)
 
+@login_required(login_url = '/')
+def sharedFiles(request):
+    user = User.objects.get(username = request.user)
+
+    files = user.shared_with.all()
+
+    return render(request, 'sharedFilePage.html', context = {'files': files})
+
+
 def logoutUser(request):
     logout(request)
     return redirect('/')
-
-def l(request):
-    user = User.objects.get(username = 'Pie2')
-    return HttpResponse(user.shared_with.all())

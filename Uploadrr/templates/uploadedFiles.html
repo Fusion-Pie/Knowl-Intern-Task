@@ -1,9 +1,5 @@
 {% extends "basePage.html" %}
 
-{% block extraScripts %}
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-{% endblock extraScripts %}
-
 {% block content %}
 
     <div class="flex flex-col w-full p-10 font-serif">
@@ -14,21 +10,34 @@
 
         <div class="flex flex-row font-bold mt-10">
             <h1 class="flex basis-1/4 justify-center">Sr.no</h1>
-            <h1 class="flex basis-2/4 justify-center">File Name</h1>
+            <h1 class="flex basis-1/4 justify-center">File Name</h1>
             <h1 class="flex basis-1/4 justify-center">Download</h1>
+            <h1 class="flex basis-1/4 justify-center">Share</h1>
         </div>
 
         {% for file in files %}
 
             <div class="flex flex-row mt-5">
                 <div class="flex basis-1/4 justify-center">{{ forloop.counter }}</div>
-                <div class="flex basis-2/4 justify-center">{{ file.file_name }}</div>
+                <div class="flex basis-1/4 justify-center">{{ file.file_name }}</div>
                 <div class="flex basis-1/4 justify-center">
-                    <a class="fex basis-1/4" href="/media/{{ file.file }}" download><box-icon name='cloud-download' animation='tada-hover'></box-icon></a>
+                    <a class="flex" href="/media/{{ file.file }}" download><box-icon name='cloud-download' animation='tada-hover'></box-icon></a>
                 </div>
+                <form action="/viewUploadedFile/" method="post">
+                    {% csrf_token %}
+                    <input type="text" value="{{ file.id }}" name="fid" hidden>
+                    <div class="flex basis-1/4 justify-center space-x-3 text-sm">
+                        <input class="flex px-2" type="text" name="uname" placeholder="Enter username">
+                        <input class="flex px-3 py-2 rounded-md bg-blue-400 hover:cursor-pointer" type="submit" name="btn_name" value="Share">
+                    </div>
+                </form>
             </div>
 
         {% endfor %}
+
+        <div class="flex justify-end mt-10 text-red-600">
+            <span>Note: Make sure username is correct.</span>
+        </div>
 
     </div>
 
