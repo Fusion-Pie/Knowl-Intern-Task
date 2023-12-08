@@ -1,5 +1,9 @@
 {% extends "basePage.html" %}
 
+{% block extraScripts %}
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+{% endblock extraScripts %}
+
 {% block content %}
 
     <div class="flex flex-col w-full p-10 font-serif">
@@ -9,15 +13,19 @@
         </div>
 
         <div class="flex flex-row font-bold mt-10">
-            <h1 class="flex basis-1/4">Sr.no</h1>
-            <h1 class="flex basis-3/4">File Name</h1>
+            <h1 class="flex basis-1/4 justify-center">Sr.no</h1>
+            <h1 class="flex basis-2/4 justify-center">File Name</h1>
+            <h1 class="flex basis-1/4 justify-center">Download</h1>
         </div>
 
         {% for file in files %}
 
             <div class="flex flex-row mt-5">
-                <div class="flex basis-1/4">{{ forloop.counter }}</div>
-                <div class="flex basis-3/4">{{ file.file_name }}</div>
+                <div class="flex basis-1/4 justify-center">{{ forloop.counter }}</div>
+                <div class="flex basis-2/4 justify-center">{{ file.file_name }}</div>
+                <div class="flex basis-1/4 justify-center">
+                    <a class="fex basis-1/4" href="/media/{{ file.file }}" download><box-icon name='cloud-download' animation='tada-hover'></box-icon></a>
+                </div>
             </div>
 
         {% endfor %}
