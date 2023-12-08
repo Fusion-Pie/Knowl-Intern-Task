@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Register</title>
+    <title>Sign up | Uploadrr</title>
 </head>
-<body class="flex justify-center items-center">
+<body class="flex justify-center items-center bg-[#E9ECEF]">
 
     <form action="/register/" method="post">
         
         {% csrf_token %}
     
-        <div class="flex flex-col bg-[#fefae0] justify-center space-y-5 mt-56 p-10 rounded-lg drop-shadow-xl">
+        <div class="flex flex-col bg-[#ADB5BD] text-[#212529] justify-center space-y-10 mt-20 p-10 rounded-lg drop-shadow-2xl shadow-2xl">
 
-            <div class="flex flex-row font-serif font-semibold text-xl space-x-10">
+            <div class="flex justify-center font-serif text-3xl font-bold">
+                <h1 class="flex">Sign Up</h1>
+            </div>
+
+            <div class="flex flex-row font-serif font-semibold text-2xl space-x-10 items-center mt-9">
                 <label class="flex basis-1/3" for="uname">Username</label>
-                <input class="flex basis-2/3 rounded-sm pl-1" type="text" name="uname">
+                <input class="flex basis-2/3 rounded-lg p-2" type="text" name="uname">
             </div>
 
             <!-- <div class="flex justify-end w-full space-x-10">
@@ -24,23 +28,23 @@
                 <input class="flex text-red-700 text-xs font-serif basis-2/3 -mt-3" type="text" id="error_uname" value="Please change your username" disabled>
             </div>    -->
             
-            <div class="flex flex-row font-serif font-semibold text-xl space-x-10">
+            <div class="flex flex-row font-serif font-semibold text-2xl space-x-10 items-center">
                 <label class="flex basis-1/3" for="fname">First Name</label>
-                <input class="flex basis-2/3 rounded-sm pl-1" type="text" name="fname">
+                <input class="flex basis-2/3 rounded-lg p-2" type="text" name="fname">
             </div>
 
-            <div class="flex flex-row font-serif font-semibold text-xl space-x-10">
+            <div class="flex flex-row font-serif font-semibold text-2xl space-x-10 items-center">
                 <label class="flex basis-1/3" for="lname">Last Name</label>
-                <input class="flex basis-2/3 rounded-sm pl-1" type="text" name="lname">
+                <input class="flex basis-2/3 rounded-lg p-2" type="text" name="lname">
             </div>
 
-            <div class="flex flex-row font-serif font-semibold text-xl space-x-10">
+            <div class="flex flex-row font-serif font-semibold text-2xl space-x-10 items-center">
                 <label class="flex basis-1/3" for="pass">Password</label>
-                <input class="flex basis-2/3 rounded-sm pl-1" type="password" name="pass">
+                <input class="flex basis-2/3 rounded-lg p-2" type="password" name="pass">
             </div>
 
             <div class="flex justify-center">
-                <input class="flex font-serif font-semibold text-xl px-5 py-2 rounded-lg bg-[#d4a373] drop-shadow-xl mt-2" name="btn_name" type="submit" value="Register">
+                <input class="flex font-serif font-semibold text-3xl py-4 px-6 rounded-lg bg-[#343A40] drop-shadow-xl mt-4 text-[#E9ECEF] hover:cursor-pointer" name="btn_name" type="submit" value="Register">
             </div>
 
         </div>

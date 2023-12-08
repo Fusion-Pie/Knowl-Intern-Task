@@ -7,47 +7,47 @@
 </head>
 <body class="flex flex-col">
 
-    <div class="flex justify-center w-full bg-red-500 p-5">
-        <h1 class="flex font-serif text-3xl font-extrabold">Uploadrr</h1>
+    <div class="flex justify-center w-full bg-[#6C757D] p-5 drop-shadow-2xl shadow-2xl">
+        <h1 class="flex font-serif text-4xl font-extrabold text-[#F8F9FA]">Uploadrr</h1>
     </div>
 
-    <div class="flex flex-row h-screen w-full bg-red-100">
+    <div class="flex flex-row bg-[#CED4DA] text-[#212529] h-screen w-full">
 
-        <div id="left_div" class="flex flex-col basis-1/5 border-r-2 border-black font-serif text-md">
+        <div id="left_div" class="flex flex-col basis-1/5 border-r-2 border-black font-serif text-lg mt-2">
 
-            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/profile/'>
+            <a class="flex bg-[#CED4DA] rounded-lg m-2 px-3 py-5 hover:cursor-pointer space-x-5 hover:bg-[#DEE2E6] hover:shadow-xl hover:drop-shadow-xl" href='/profile/'>
                 <box-icon class="flex" name='log-out'></box-icon> 
                 <span class="flex">Profile</span>
             </a>
 
-            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/uploadFile/'>
+            <a class="flex bg-[#CED4DA] rounded-lg m-2 px-3 py-5 hover:cursor-pointer space-x-5 hover:bg-[#DEE2E6] hover:shadow-xl hover:drop-shadow-xl" href='/uploadFile/'>
                 <box-icon class="flex" name='cloud-upload'></box-icon>
                 <span class="flex">Upload Files</span>
             </a>
 
-            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/viewUploadedFile/'>
+            <a class="flex bg-[#CED4DA] rounded-lg m-2 px-3 py-5 hover:cursor-pointer space-x-5 hover:bg-[#DEE2E6] hover:shadow-xl hover:drop-shadow-xl" href='/viewUploadedFile/'>
                 <box-icon name='upload' ></box-icon>
                 <span>View Uploaded Files</span>
             </a>
 
-            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/sharedFile/'>
+            <a class="flex bg-[#CED4DA] rounded-lg m-2 px-3 py-5 hover:cursor-pointer space-x-5 hover:bg-[#DEE2E6] hover:shadow-xl hover:drop-shadow-xl" href='/sharedFile/'>
                 <box-icon name='share' ></box-icon>
                 <span>Shared Files</span>
             </a>
 
-            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/searchUser/'>
+            <a class="flex bg-[#CED4DA] rounded-lg m-2 px-3 py-5 hover:cursor-pointer space-x-5 hover:bg-[#DEE2E6] hover:shadow-xl hover:drop-shadow-xl" href='/searchUser/'>
                 <box-icon name='search-alt-2' ></box-icon>
                 <span>Search User</span>
             </a>
 
-            <a class="flex bg-slate-400 p-3 border-b-2 border-black hover:cursor-pointer space-x-5" href='/logout/'>
+            <a class="flex bg-[#CED4DA] rounded-lg m-2 px-3 py-5 hover:cursor-pointer space-x-5 hover:bg-[#DEE2E6] hover:shadow-xl hover:drop-shadow-xl" href='/logout/'>
                 <box-icon name='log-out' ></box-icon>
                 <span>Logout</span>
             </a>
 
         </div>
 
-        <div id="right-div" class="flex basis-4/5 w-full">
+        <div id="right-div" class="flex basis-4/5 w-full bg-[#E9ECEF]">
 
             {% block content %}
             
