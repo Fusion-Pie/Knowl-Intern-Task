@@ -16,12 +16,10 @@ def loginUser(request):
             if user is not None:
                 login(request , user = user)
 
-                messages.success(request, 'Login Successful !!')
-
                 return render(request, 'basePage.html')
             
             else:
-                messages.error(request, 'Username or Password is incorrect')
+                messages.error(request, 'Incorrect Username or Password')
 
                 return render(request, 'loginPage.html')
 
@@ -117,7 +115,6 @@ def searchUser(request):
             try:
                 user = User.objects.filter(username = request.POST['uname'])
                 context['userInfo'] = user 
-                print(user)
             except:
                 pass
 

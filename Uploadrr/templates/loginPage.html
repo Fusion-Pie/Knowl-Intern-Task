@@ -18,6 +18,18 @@
                 <h1 class="flex font-serif text-4xl">Login</h1>
             </div>
 
+            {% if messages %}
+
+                {% for message in  messages %}
+
+                    <div class="flex">
+                        <span class="flex text-lg text-red-600 font-serif font-semibold">{{ message }}</span>
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
             <div class="flex flex-row font-serif font-semibold text-2xl space-x-10 items-center">
                 <label class="flex basis-1/3" for="uname">Username</label>
                 <input class="flex basis-2/3 rounded-lg p-2" type="text" name="uname">
@@ -31,15 +43,14 @@
             <div class="flex justify-center">
                 <input class="flex font-serif font-semibold px-6 py-4 text-3xl rounded-lg bg-[#343A40] text-[#E9ECEF] drop-shadow-lg mt-2 hover:cursor-pointer" name="btn_name" type="submit" value="Login">
             </div>
-    
 
     </form>
     
-    <div class="flex justify-end space-x-2 font-serif text-sm">
-        <span class="flex ">Don't Have Account?</span><a class="flex text-[#212529] font-semibold" href="/register/">Register</a>
-    </div>
+        <div class="flex justify-end space-x-2 font-serif text-sm">
+            <span class="flex ">Don't Have Account?</span><a class="flex text-[#212529] font-semibold" href="/register/">Register</a>
+        </div>
 
     </div>
-    
+
 </body>
 </html>
